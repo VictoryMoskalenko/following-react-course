@@ -4,16 +4,30 @@ import Car from './Car/Car';
 
 class App extends Component {
 
-  state = {
-    cars: [
-      {name: 'Ford', year: 2018},
-      {name: 'Audi', year: 2016},
-      {name: 'Mazda', year: 2010}
-    ], 
-    pageTitle: 'The best cars',
-    pageSubtitle: 'Project for showing cars',
-    showCars: 'false'
+  constructor(props) {
+    super(props)
+    this.state = {
+      cars: [
+        {name: 'Ford', year: 2018},
+        {name: 'Audi', year: 2016},
+        {name: 'Mazda', year: 2010}
+      ], 
+      pageTitle: 'The best cars',
+      pageSubtitle: 'Project for showing cars',
+      showCars: 'false'
+    }
   }
+//another way for creating state:
+  // state = {
+  //   cars: [
+  //     {name: 'Ford', year: 2018},
+  //     {name: 'Audi', year: 2016},
+  //     {name: 'Mazda', year: 2010}
+  //   ], 
+  //   pageTitle: 'The best cars',
+  //   pageSubtitle: 'Project for showing cars',
+  //   showCars: 'false'
+  // }
 
   // changeTitleHandler = (newTitle) => {
     // const oldTitle = this.state.pageTitle
@@ -64,6 +78,8 @@ class App extends Component {
     })
   }
 
+  
+
   render() {
 
     let cars = null;//
@@ -85,9 +101,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>{this.state.pageTitle}</h1>
+        {/* <h1>{this.state.pageTitle}</h1> */}
 
-        {/* <input type="text" onChange={this.handleInput} /> */}
+        <h1>{this.props.title}</h1>
 
         <h2>{this.state.pageSubtitle}</h2>
 
