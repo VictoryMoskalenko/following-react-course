@@ -5,12 +5,12 @@ import './Car.css';
 class Car extends React.Component {
     render() {
         const inputClasses = ['input']
-        if (props.name !== '') {
+        if (this.props.name !== '') {
             inputClasses.push('green')
         } else {
             inputClasses.push('red')
         }
-        if (props.name.length > 4) {
+        if (this.props.name.length > 4) {
             inputClasses.push('bold')
         }
     
@@ -26,14 +26,14 @@ class Car extends React.Component {
         
         return(
             <div className="Car" style={style}>
-            <h3>Car name: {props.name}</h3>
-            <p>Year: <strong>{props.year}</strong></p>
+            <h3>Car name: {this.props.name}</h3>
+            <p>Year: <strong>{this.props.year}</strong></p>
             <input 
                 type="text" 
-                onChange={props.onChangeName} 
-                value={props.name}
+                onChange={this.props.onChangeName} 
+                value={this.props.name}
                 className={inputClasses.join(' ')} />
-                <button onClick={props.onDelete}>Delete</button>
+                <button onClick={this.props.onDelete}>Delete</button>
                 {/* <button onClick={props.onChangeTitle}>Click</button> */}
                 {/* <button onClick={props.onChangeSubtitle}>Click</button> */}
     
