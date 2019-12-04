@@ -40,8 +40,7 @@ const FinishedQuiz = props => {
       <div>
         {/* <button onClick={props.onRetry}>Repeat</button> */}
         <Button onClick={props.onRetry} type="primary">Repeat</Button>
-        <Button onClick={props.onRetry} type="success">go to the test list</Button>
-        
+        <Button onClick={props.onRetry} type="success">Go to the test list</Button>
       </div>
     </div>
   )
