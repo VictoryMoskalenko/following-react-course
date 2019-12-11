@@ -6,10 +6,10 @@ import FinishedQuiz from '../../components/FinishedQuiz/FinishedQuiz'
 class Quiz extends Component {
 
     state = {
-        results: {},  //{[id]: 'success' 'error'} for all questions
+        results: {},  
         isFinished: false,
         activeQuestion: 0,
-        answerState: null,  //{[id]: 'success' 'error'}
+        answerState: null, 
         quiz: [
            {
                question: 'What color is the sky?',
@@ -122,8 +122,6 @@ class Quiz extends Component {
                         state={this.state.answerState} 
                             />  
                     }
-
-                    
                 </div>
             </div>
         )
