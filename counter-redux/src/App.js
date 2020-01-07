@@ -14,10 +14,10 @@ class App extends Component {
 
         <div className="Actions">
           <button onClick={this.props.onAdd}>
-            Add 1
+            Increase
           </button>
           <button onClick={this.props.onSub}>
-            Subtract 1
+            Decrease
           </button>
         </div>
       </div>

@@ -5,6 +5,7 @@ const initialState = {
 }
 
 //Reducer
+
 const reducer = (state = initialState, action) => {
 
   if (action.type === 'ADD') {
@@ -24,28 +25,41 @@ const reducer = (state = initialState, action) => {
       counter: state.counter + action.value
     }
   }
-
   return state
 }
 
-//Store
+//Store 
+
 const store = redux.createStore(reducer)
-// console.log('1', store.getState())
 
 store.subscribe(() => {
   console.log('Subscribe', store.getState())
 })
 
 //Actions
+
 const addCounter = {
   type: 'ADD'
 }
 
 store.dispatch(addCounter)
-// console.log('2', store.getState())
 
 store.dispatch({ type: 'SUB' })
-// console.log('3', store.getState())
 
 store.dispatch({ type: 'ADD_NUMBER', value: 10 })
-// console.log('4', store.getState())
+
+
+const initialState = {
+  counter: 0
+}
+
+const reducer = (state = initialState, action) => {
+
+}
+
+const store = redux.createStore(reducer)
+
+store.subscribe(() => {
+  console.log()
+})
+
