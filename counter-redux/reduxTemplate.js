@@ -83,3 +83,10 @@ const addCounter = {
 
 store.dispatch(addCounter)
 
+function createStore(reducer, initialState) {
+  let state = initialState
+  return {
+    dispatch: action => {state = reducer(state, action)},
+    getState: () => state
+  }
+}

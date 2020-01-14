@@ -48,18 +48,7 @@ store.dispatch({ type: 'SUB' })
 
 store.dispatch({ type: 'ADD_NUMBER', value: 10 })
 
-
 const initialState = {
   counter: 0
 }
-
-const reducer = (state = initialState, action) => {
-
-}
-
-const store = redux.createStore(reducer)
-
-store.subscribe(() => {
-  console.log()
-})
 
