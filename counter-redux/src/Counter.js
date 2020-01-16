@@ -1,5 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
+// import thunk from 'redux-thunk'
+import { add2 } from './redux/actions/actions'
 
 class Counter extends React.Component {
   render() {
@@ -8,8 +10,8 @@ class Counter extends React.Component {
         <h1>Counter2 {this.props.counter}</h1>
         <hr/>
         <div>
-          <button>Add</button>
-          <button>Sub</button>
+          <button onClick={() => this.props.onChange(1)}>Add</button>
+          <button onClick={() => this.props.onChange(-1)}>Sub</button>
         </div>
       </div>  
     )
@@ -17,10 +19,17 @@ class Counter extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return {
+  return {          
+
     counter: state.counter2.counter2
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    onChange: number => dispatch(add2(number))
+  }
+}
 
-export default connect()(Counter)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)
