@@ -136,8 +136,6 @@ class Auth extends Component {
                shouldValidate={!!control.validation}
                errorMessage={control.errorMessage}
                onChange={event => this.onChangeHandler(event, controlName)}
-
-
             /> 
           ) 
        })

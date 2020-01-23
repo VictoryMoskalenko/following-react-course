@@ -6,9 +6,9 @@ export const Alert = () => {
   if (!alert) return null
 
   return (
-    
-    <div className={`alert alert-${alert.type || 'secondary'} alert-dismissible`} 
-    role="alert"
+    <div 
+      className={`alert alert-${alert.type || 'secondary'} alert-dismissible`} 
+      role="alert"
     >
     {alert.text}
       <button type="button" className="close" aria-label="Close" onClick={hide} >
