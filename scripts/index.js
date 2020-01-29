@@ -1,34 +1,52 @@
-// function foo() {
-//   console.log("Hi!")
-// }
-// foo();
-// foo.field = 'Name';
-// console.log(foo.field);
+const btn = document.querySelector("button");
 
-// const square = function(x) {
-//   return x * x;
-// };
-// console.log(square(6));
+const container = document.querySelector('.container');
 
-// function sayHello(firstName, lastName) {
-//   console.log(firstName, lastName);
-//   return `Hello ${firstName} ${lastName}`
-  
-// }
+function getPosts(cb) {
+  const xhr = new XMLHttpRequest();
+// console.log(xhr)
+xhr.open("GET", "https://jsonplaceholder.typicode.com/posts");
 
-// let res = sayHello('Name', 'Surname') + '!';
-// console.log(res);
+xhr.addEventListener("load", () => {
+   console.log(xhr.responseText);
+   const response = JSON.parse(xhr.responseText);
+   console.log(response);
+   cb(response)
+});
 
-// const user = {
-//   name: "UserName",
-//   age: 30
-// };
+xhr.addEventListener("error", () => {
+  console.log('error');
+});
 
-// function getObj(obj) {
-//   // console.log(obj);
-//   obj.name = "Name";
-// };
+xhr.send();
+}
 
-// getObj(user);
-// console.log(user);
+function renderPosts(response) {
+  const fragment = document.createDocumentFragment();
+    response.forEach( post => {
+      const card = document.createElement("div");
+      card.classList.add('card');
+      const cardBody = document.createElement("div");
+      cardBody.classList.add('card-body');
+      const title = document.createElement('h5');
+      title.classList.add('card-title');
+      title.textContent = post.title;
+      const article = document.createElement('p');
+      article.classList.add('card-text');
+      article.textContent = post.body;
+      cardBody.appendChild(title);
+      cardBody.appendChild(article);
+      // console.log(cardBody);
+      card.appendChild(cardBody);
+      fragment.appendChild(card);
+    });
+    container.appendChild(fragment);
+}
+
+btn.addEventListener("click", (e) => {
+  getPosts(renderPosts);
+});
+
+
+
 
