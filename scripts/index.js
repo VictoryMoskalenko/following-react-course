@@ -89,22 +89,35 @@ btnAddPost.addEventListener("click", (e) => {
   });
 });
 
-//CORS
-
-function getGmail(cb) {
+function myHttpRequest({ method, url } = {}, cb) {
   const xhr = new XMLHttpRequest();
+  xhr.open(method, url);
+  xhr.addEventListener("load", () => {
+    if (Math.floor(xhr.status / 100) !== 2) {
+      cb(`Error. Status code: ${xhr.status}`, xhr);
+      return;
+    }
+    const response = JSON.parse(xhr.responseText);
+    cb(null, response);
+  });
 
-xhr.open("GET", "http://gmail.com");
+  xhr.addEventListener("error", () => {
+    cb(`Error. Status code: ${xhr.status}`, xhr);
+  });
 
-xhr.addEventListener("load", () => {
-  console.log(xhr.responseText); 
-});
+  xhr.send();
+} 
 
-xhr.addEventListener("error", () => {
-  console.log("error");
-});
-
-xhr.send();
-}
-
-//CORS Cross Origin Resource Sharing как один сайт будет предоставлять доступ к данным другого сайта
+myHttpRequest(
+  {
+    method:'GET',
+    url: 'https://jsonplaceholder.typicodes.com/posts',
+  },
+    (err, res) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log(res);
+  },
+);
