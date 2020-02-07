@@ -1,5 +1,5 @@
 const promise = new Promise((resolve, reject) => {
-  setTimeout(() => resolve(Math.random()), 1000)
+  setTimeout(() => reject('error'), 1000)
 });
 
 console.log(promise);
@@ -8,6 +8,7 @@ promise
     console.log(x);
     return x;
 })
-  .then(y => console.log(y));
+  .then(y => console.log(y))
+  .catch(err => console.log(err));
 
-  promise.then(z => console.log(z));
+  // promise.then(z => console.log(z));
