@@ -89,8 +89,7 @@ btnAddPost.addEventListener("click", (e) => {
   });
 });
 
-function myHttpRequest({ method, url } = {}, cb) {
-  
+function myHttpRequest({ method, url } = {}, cb) { 
  
 } 
 
@@ -107,6 +106,7 @@ function myHttpRequest({ method, url } = {}, cb) {
 //       console.log(res);
 //   },
 // );
+
 
 function http() {
   return {
